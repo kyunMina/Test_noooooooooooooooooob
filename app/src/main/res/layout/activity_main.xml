@@ -10,17 +10,16 @@
 
     <Button
         android:id="@+id/camera_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="button" />
 
     <ImageView
         android:id="@+id/image_view"
-        android:scaleType="fitCenter"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        />
+        android:scaleType="fitCenter" />
 
 </LinearLayout>
