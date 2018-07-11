@@ -1,7 +1,15 @@
 package com.example.mukai.test_noooooooooooooooooob;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Camera;
+import android.graphics.Matrix;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraManager;
+import android.media.ExifInterface;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,9 +60,29 @@ public class MainActivity extends AppCompatActivity {
                 int bmpHeight = bitmap.getHeight();
                 Log.d("debug", String.format("w=%d", bmpWidth));
                 Log.d("debug", String.format("h=%d", bmpHeight));
+                //Log.d("debug", String.format("dis_DEGREE = %d", getWindowManager().getDefaultDisplay().getRotation()));
+
             }
 
-            imageView.setImageBitmap(bitmap);
+
+            //  画像の向き修正
+            //  https://akira-watson.com/android/matrix.html
+
+            int bmpWidth = bitmap.getWidth();
+            int bmpHeight = bitmap.getHeight();
+
+            //  Matrixインスタンス生成
+            Matrix matrix =new Matrix();
+
+            //  画像中心を基点に90度回転
+            matrix.setRotate(90,bmpWidth/2,bmpHeight/2);
+
+            //  90度回転したBitmap画像を生成
+            Bitmap bitmap1 = Bitmap.createBitmap(bitmap,0,0,bmpWidth,bmpHeight,matrix,true);
+
+            //
+            imageView.setImageBitmap(bitmap1);
+
         }
     }
 }
