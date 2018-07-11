@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             Bitmap bitmap1 = Bitmap.createBitmap(bitmap,0,0,bmpWidth,bmpHeight,matrix,true);
 
             //
-
             imageView.setImageBitmap(bitmap1);
 
         }
