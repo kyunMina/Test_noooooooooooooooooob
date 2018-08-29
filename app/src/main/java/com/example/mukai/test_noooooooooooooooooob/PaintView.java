@@ -59,7 +59,7 @@ public class PaintView extends View {
         double cos[] = new double[2];
 
         for (int i = 0;i < 2;i++){
-            A_x[i] = point_x[i] - point_x[i+1];
+            A_x[i] = point_x[i] - point_x[i+1];//dsds
             A_y[i] = point_y[i] - point_y[i+1];
             B_x[i] = point_x[i+2] - point_x[i+1];
             B_y[i] = point_y[i+2] - point_y[i+1];
