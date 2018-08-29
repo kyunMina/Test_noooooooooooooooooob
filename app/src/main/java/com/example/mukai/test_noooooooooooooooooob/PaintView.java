@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+
 public class PaintView extends View {
 
     int points = 0;
@@ -44,6 +45,9 @@ public class PaintView extends View {
 
         float x = event.getX();
         float y = event.getY();
+        float point_x[] = new float[5];
+        float point_y[] = new float[5];
+
 
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
@@ -64,7 +68,13 @@ public class PaintView extends View {
                     Log.d("debug","y = "+y);
                     Log.d("debug","Points"+points);
                     Points(x,y);
+
                     //  配列に各点を保存する
+                    point_x[points] = x;
+                    point_y[points] = y;
+                    Log.d("debug","point_x = "+point_x[points]);
+                    Log.d("debug","point_y = "+point_y[points]);
+
 
                 }
                 else{

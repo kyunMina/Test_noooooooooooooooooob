@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT,cameraUri);
         startActivityForResult(intent,RESULT_CAMERA);
 
+
         Log.d("debug","startActivityForResult");
     }
 
