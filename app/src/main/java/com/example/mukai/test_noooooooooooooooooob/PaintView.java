@@ -90,12 +90,12 @@ public class PaintView extends View {
 
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                //path.moveTo(x,y);
+                path.moveTo(x,y);
+                path.addCircle(x,y,10, Path.Direction.CCW);
                 invalidate();
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                //path.moveTo(x,y);
                 invalidate();
                 break;
 
