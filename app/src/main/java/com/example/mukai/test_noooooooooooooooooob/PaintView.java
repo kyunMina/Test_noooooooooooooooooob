@@ -30,7 +30,7 @@ public class PaintView extends View {
         super(context,attrs);
         path = new Path();
         paint = new Paint();
-        paint.setColor(0xFF000000);
+        paint.setColor(0xFFFF0000);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setStrokeWidth(10);
@@ -70,8 +70,10 @@ public class PaintView extends View {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
         alertDialog.setTitle("角度");
         alertDialog.setMessage(
-                "cos[0] = "+Math.toDegrees(Math.acos(cos[0]))+ "\n"+
-                        "cos[1] = "+Math.toDegrees(Math.acos(cos[1]))
+                "acos[0] = "+Math.toDegrees(Math.acos(cos[0]))+ "\n"+
+                        "cos[0] = "+cos[0]+ "\n"+
+                        "acos[1] = "+Math.toDegrees(Math.acos(cos[1]))+ "\n"+
+                        "cos[1] = "+cos[1]
         );
         alertDialog.setPositiveButton("完了", null);
         alertDialog.show();
@@ -109,7 +111,7 @@ public class PaintView extends View {
                     //  配列に各点を保存する
                     point_x[points] = x;
                     point_y[points] = y;
-                    //Points(x,y);
+                    Points(x,y);
 
                     //  点間補完
                     if(points > 0){
