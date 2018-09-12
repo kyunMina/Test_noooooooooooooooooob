@@ -15,8 +15,8 @@ import android.widget.Toast;
 public class PaintView extends View {
 
     int points = 0;
-    float point_x[] = new float[4];
-    float point_y[] = new float[4];
+    float point_x[] = new float[5];
+    float point_y[] = new float[5];
 
     private Paint paint;
     private Path path;
@@ -96,14 +96,14 @@ public class PaintView extends View {
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                path.addCircle(x,y,10,Path.Direction.CW);
+                //path.addCircle(x,y,10,Path.Direction.CW);
                 invalidate();
                 break;
 
             case MotionEvent.ACTION_UP:
 
 
-                if (points < 4){
+                if (points < 5){
                     path.addCircle(x,y,10, Path.Direction.CCW);
                     Log.d("debug","x = "+x);
                     Log.d("debug","y = "+y);
@@ -120,7 +120,7 @@ public class PaintView extends View {
                     }
 
 
-                    if(points == 3){
+                    if(points == 4){
                         //  座標値確認アラートダイアログ
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
                         alertDialog.setTitle("座標値");
